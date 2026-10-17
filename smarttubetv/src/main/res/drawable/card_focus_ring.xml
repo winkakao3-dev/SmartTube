@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- White ring drawn over the focused thumbnail, as in YouTube for TV -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke android:width="@dimen/card_focus_ring_width" android:color="@color/white" />
+    <corners android:radius="@dimen/card_thumb_corner_radius" />
+</shape>

@@ -1008,6 +1008,7 @@
     <style name="TextAppearance.Leanback.ImageCardView.Title">
         <item name="android:textColor">@color/lb_basic_card_title_text_color</item>
         <item name="android:textSize">@dimen/lb_basic_card_title_text_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="TextAppearance.Leanback.PlaybackControlLabel">
         <item name="android:textSize">@dimen/lb_control_button_text_size</item>

@@ -51,11 +51,11 @@ public class VideoCardPresenter extends LongClickPresenter {
         mDefaultBackgroundColor =
             ContextCompat.getColor(context, Helpers.getThemeAttr(context, R.attr.cardDefaultBackground));
         mDefaultTextColor =
-                ContextCompat.getColor(context, R.color.card_default_text);
+                ContextCompat.getColor(context, R.color.yt_text_secondary);
         mSelectedBackgroundColor =
                 ContextCompat.getColor(context, Helpers.getThemeAttr(context, R.attr.cardSelectedBackground));
         mSelectedTextColor =
-                ContextCompat.getColor(context, R.color.card_selected_text_grey);
+                ContextCompat.getColor(context, R.color.yt_text_primary);
 
         mCardPreviewType = getCardPreviewType(context);
         mThumbQuality = getThumbQuality(context);
@@ -110,9 +110,10 @@ public class VideoCardPresenter extends LongClickPresenter {
         if (titleText != null) {
             titleText.setTextColor(textColor);
         }
+        // Channel and views stay grey; only the title lights up on focus.
         TextView contentText = view.findViewById(R.id.content_text);
         if (contentText != null) {
-            contentText.setTextColor(textColor);
+            contentText.setTextColor(mDefaultTextColor);
         }
     }
 
@@ -136,7 +137,7 @@ public class VideoCardPresenter extends LongClickPresenter {
                 video.badge
         );
         cardView.setBadgeColor(video.hasNewContent || video.isLive || video.isUpcoming ?
-                ContextCompat.getColor(context, R.color.dark_red) : ContextCompat.getColor(context, R.color.black));
+                ContextCompat.getColor(context, R.color.yt_live_red) : ContextCompat.getColor(context, R.color.yt_badge));
 
         if (mCardPreviewType != MainUIData.CARD_PREVIEW_DISABLED) {
             cardView.setPreview(video);

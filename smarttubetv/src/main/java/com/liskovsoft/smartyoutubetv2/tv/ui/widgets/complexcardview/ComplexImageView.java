@@ -2,15 +2,21 @@ package com.liskovsoft.smartyoutubetv2.tv.ui.widgets.complexcardview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Outline;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.liskovsoft.smartyoutubetv2.common.app.models.data.Video;
@@ -59,6 +65,30 @@ public class ComplexImageView extends RelativeLayout {
         mProgressBar = findViewById(R.id.clip_progress);
         mProgressContainer = findViewById(R.id.clip_info);
         mPreviewContainer = findViewById(R.id.preview_container);
+        roundThumbnailCorners();
+    }
+
+    private void roundThumbnailCorners() {
+        if (Build.VERSION.SDK_INT < 21) {
+            return;
+        }
+
+        float radius = getResources().getDimension(R.dimen.card_thumb_corner_radius);
+        setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
+            }
+        });
+        setClipToOutline(true);
+    }
+
+    public void setFocusRingVisible(boolean visible) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return;
+        }
+
+        setForeground(visible ? ContextCompat.getDrawable(getContext(), R.drawable.card_focus_ring) : null);
     }
 
     /**
@@ -109,7 +139,10 @@ public class ComplexImageView extends RelativeLayout {
             return;
         }
 
-        mBadgeText.setBackgroundColor(color);
+        GradientDrawable pill = new GradientDrawable();
+        pill.setColor(color);
+        pill.setCornerRadius(getResources().getDimension(R.dimen.card_badge_corner_radius));
+        mBadgeText.setBackground(pill);
     }
 
     /**

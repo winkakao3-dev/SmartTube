@@ -31,8 +31,8 @@ if (keystorePropertiesFile.exists()) {
 }
 
 // The first letter of the flavor name must be in uppercase
-if (new File("${projectDir}/google-services.json").exists() && (getGradle().getStartParameter().getTaskRequests().toString().contains("Stbeta") ||
-        getGradle().getStartParameter().getTaskRequests().toString().contains("Ststable"))) {
+// Ststable is a fork with its own app id: it must not report crashes to the upstream Firebase project.
+if (new File("${projectDir}/google-services.json").exists() && getGradle().getStartParameter().getTaskRequests().toString().contains("Stbeta")) {
     // Google Services Gradle plugin (transforms google-services.json file)
     apply plugin: 'com.google.gms.google-services'
 
@@ -164,7 +164,7 @@ android {
             targetSdkVersion project.properties.compileSdkVersion
         }
         ststable {
-            applicationId "org.smarttube.stable"
+            applicationId "app.smarttube.ytv"
             targetSdkVersion project.properties.compileSdkVersion
         }
         stfdroid {
@@ -239,10 +239,6 @@ dependencies {
     // Add the Firebase Crashlytics SDK.
 
     stbetaImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
-        transitive = true
-    }
-
-    ststableImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
         transitive = true
     }
 
