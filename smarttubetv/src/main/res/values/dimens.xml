@@ -3,19 +3,19 @@
     <!-- Default, same as xhdpi -->
     <!-- 320dpi, Amazon Fire TV Stick -->
 
-    <dimen name="card_width">264dp</dimen>
-    <dimen name="card_height">148dp</dimen>
+    <dimen name="card_width">370dp</dimen>
+    <dimen name="card_height">207dp</dimen>
     <!-- text_badge_image_view.xml, default: 12sp -->
-    <dimen name="card_badge_text_size">12sp</dimen>
-    <dimen name="card_thumb_corner_radius">8dp</dimen>
-    <dimen name="card_focus_ring_width">3dp</dimen>
-    <dimen name="card_badge_corner_radius">4dp</dimen>
-    <dimen name="card_badge_margin">6dp</dimen>
-    <dimen name="card_badge_padding_horizontal">5dp</dimen>
-    <dimen name="card_badge_padding_vertical">2dp</dimen>
+    <dimen name="card_badge_text_size">17sp</dimen>
+    <dimen name="card_thumb_corner_radius">11dp</dimen>
+    <dimen name="card_focus_ring_width">4dp</dimen>
+    <dimen name="card_badge_corner_radius">6dp</dimen>
+    <dimen name="card_badge_margin">8dp</dimen>
+    <dimen name="card_badge_padding_horizontal">7dp</dimen>
+    <dimen name="card_badge_padding_vertical">3dp</dimen>
     <!-- Text starts at the thumbnail edge and sits a little below it -->
     <dimen name="lb_basic_card_info_padding_horizontal">0dp</dimen>
-    <dimen name="lb_basic_card_info_padding_top">10dp</dimen>
+    <dimen name="lb_basic_card_info_padding_top">14dp</dimen>
 
     <dimen name="shorts_card_width">120dp</dimen>
     <dimen name="shorts_card_height">200dp</dimen>
@@ -122,8 +122,8 @@
     <dimen name="lb_basic_card_info_height">52dp</dimen>
     <dimen name="lb_basic_card_info_padding">6dp</dimen>
     <dimen name="lb_basic_card_info_text_margin">2dp</dimen>
-    <dimen name="lb_basic_card_title_text_size">18sp</dimen>
-    <dimen name="lb_basic_card_content_text_size">13sp</dimen>
+    <dimen name="lb_basic_card_title_text_size">25sp</dimen>
+    <dimen name="lb_basic_card_content_text_size">18sp</dimen>
     <dimen name="lb_basic_card_info_badge_size">16dp</dimen>
 
     <!-- Elements below aren't used in the app -->
