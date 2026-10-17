@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MOD: YouTube TV round buttons, grey at rest and white when focused -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:constantSize="true"
+    android:enterFadeDuration="150"
+    android:exitFadeDuration="150">
+    <item android:state_focused="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/yt_text_primary" />
+            <size android:width="@dimen/lb_control_button_diameter" android:height="@dimen/lb_control_button_diameter" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/yt_surface" />
+            <size android:width="@dimen/lb_control_button_diameter" android:height="@dimen/lb_control_button_diameter" />
+        </shape>
+    </item>
+</selector>

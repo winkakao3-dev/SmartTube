@@ -676,7 +676,8 @@ public class PlaybackTransportRowPresenter extends PlaybackRowPresenter {
             if (adapter.getPresenterSelector() instanceof ControlButtonPresenterSelector) {
                 ControlButtonPresenterSelector selector =
                         (ControlButtonPresenterSelector) adapter.getPresenterSelector();
-                return selector.getSecondaryPresenter();
+                // Round transport buttons for the primary row; flat ones for the grouped actions row
+                return primary ? selector.getPrimaryPresenter() : selector.getSecondaryPresenter();
             }
             return adapter.getPresenter(adapter.size() > 0 ? adapter.get(0) : null);
         }

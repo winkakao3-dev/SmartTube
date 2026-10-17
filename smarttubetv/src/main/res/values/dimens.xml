@@ -119,6 +119,17 @@
     <!--<dimen name="lb_browse_item_vertical_spacing">15dp</dimen>-->
     <dimen name="grid_item_horizontal_spacing">34dp</dimen>
     <dimen name="search_pill_width">315dp</dimen>
+    <dimen name="lb_control_button_diameter">52dp</dimen>
+    <dimen name="lb_control_button_height">52dp</dimen>
+    <dimen name="lb_control_button_secondary_diameter">44dp</dimen>
+    <dimen name="lb_control_button_secondary_height">44dp</dimen>
+    <dimen name="lb_control_icon_width">24dp</dimen>
+    <dimen name="lb_control_icon_height">24dp</dimen>
+    <dimen name="player_actions_margin_top">12dp</dimen>
+    <dimen name="lb_details_description_title_text_size">24sp</dimen>
+    <dimen name="lb_details_description_title_resized_text_size">22sp</dimen>
+    <dimen name="player_actions_group_padding">8dp</dimen>
+    <dimen name="player_actions_group_corner_radius">26dp</dimen>
     <dimen name="search_pill_corner_radius">26dp</dimen>
     <dimen name="search_pill_text_size">18sp</dimen>
     <dimen name="search_pill_padding_horizontal">18dp</dimen>

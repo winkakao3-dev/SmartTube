@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 import androidx.leanback.R;
 import androidx.leanback.widget.Action;
 import androidx.leanback.widget.PlaybackControlsRow;
@@ -106,12 +108,17 @@ public class ControlButtonPresenterSelector extends PresenterSelector {
             ActionViewHolder vh = (ActionViewHolder) viewHolder;
 
             vh.mIcon.setImageDrawable(action.getIcon());
+            boolean isPhoto = false;
             if (action instanceof PaddingAction) {
                 int padding = ((PaddingAction) action).getPadding();
                 if (padding > 0) {
                     vh.mIcon.setPadding(padding, padding, padding, padding);
+                    isPhoto = true; // padding is only set once the channel avatar has loaded
                 }
             }
+            // Photos keep their colors on the white focused circle; glyph icons darken
+            ImageViewCompat.setImageTintList(vh.mIcon, isPhoto ? null : ContextCompat.getColorStateList(
+                    vh.mIcon.getContext(), com.liskovsoft.smartyoutubetv2.tv.R.color.control_icon_tint));
             if (vh.mLabel != null) {
                 if (action.getIcon() == null) {
                     vh.mLabel.setText(action.getLabel1());

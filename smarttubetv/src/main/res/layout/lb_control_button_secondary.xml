@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MOD: the icon sits inside the focusable button so it inherits the focused state (tooltips own the focus listener)
+     and darkens on the white focused circle. Multiply keeps colored icons (active repeat, liked) as they are at rest. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:id="@+id/button"
+        style="?attr/playbackControlsButtonStyle"
+        android:layout_width="@dimen/lb_control_button_secondary_diameter"
+        android:layout_height="@dimen/lb_control_button_secondary_height"
+        android:background="@drawable/lb_control_button_secondary" >
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/lb_control_icon_width"
+            android:layout_height="@dimen/lb_control_icon_height"
+            android:layout_gravity="center"
+            android:duplicateParentState="true"
+            android:tint="@color/control_icon_tint"
+            android:tintMode="multiply" />
+    </FrameLayout>
+</FrameLayout>

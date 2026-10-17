@@ -989,7 +989,9 @@
     <style name="TextAppearance.Leanback.DetailsDescriptionTitle">
         <item name="android:textSize">@dimen/lb_details_description_title_text_size</item>
         <item name="android:textColor">@color/lb_details_description_color</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <!-- MOD: YouTube TV player title is bold, not light -->
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="TextAppearance.Leanback.ErrorMessage">
         <item name="android:textSize">@dimen/lb_error_message_text_size</item>
