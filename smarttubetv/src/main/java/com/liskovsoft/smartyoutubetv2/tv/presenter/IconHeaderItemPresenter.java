@@ -1,6 +1,8 @@
 package com.liskovsoft.smartyoutubetv2.tv.presenter;
 
+import android.animation.ArgbEvaluator;
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -30,6 +32,9 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
     private final int mResId;
     private final String mIconUrl;
     private Drawable mDefaultIcon;
+    private final ArgbEvaluator mArgbEvaluator = new ArgbEvaluator();
+    private int mIdleColor;
+    private int mSelectedColor;
 
     public IconHeaderItemPresenter(int resId, String iconUrl) {
         mResId = resId;
@@ -43,9 +48,12 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
         LayoutInflater inflater = (LayoutInflater) viewGroup.getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mDefaultIcon = new ColorDrawable(ContextCompat.getColor(viewGroup.getContext(), R.color.lb_grey));
+        mIdleColor = ContextCompat.getColor(viewGroup.getContext(), R.color.yt_text_primary);
+        mSelectedColor = ContextCompat.getColor(viewGroup.getContext(), R.color.yt_background);
 
         View view = inflater.inflate(R.layout.icon_header_item, null);
-        view.setAlpha(mUnselectedAlpha); // Initialize icons to be at half-opacity.
+        view.setAlpha(mUnselectedAlpha);
+        view.getBackground().mutate().setAlpha(0);
 
         return new ViewHolder(view);
     }
@@ -94,8 +102,22 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
     // mUnselectAlpha, and also assumes the xml inflation will return a RowHeaderView.
     @Override
     protected void onSelectLevelChanged(RowHeaderPresenter.ViewHolder holder) {
-        holder.view.setAlpha(mUnselectedAlpha + holder.getSelectLevel() *
-                (1.0f - mUnselectedAlpha));
+        float level = holder.getSelectLevel();
+        holder.view.setAlpha(mUnselectedAlpha + level * (1.0f - mUnselectedAlpha));
+
+        // The white pill fades in under the focused item while its icon and label turn dark
+        holder.view.getBackground().setAlpha((int) (level * 255));
+        int color = (int) mArgbEvaluator.evaluate(level, mIdleColor, mSelectedColor);
+
+        TextView label = holder.view.findViewById(R.id.header_label);
+        if (label != null) {
+            label.setTextColor(color);
+        }
+
+        ImageView iconView = holder.view.findViewById(R.id.header_icon);
+        if (iconView != null && mIconUrl == null) {
+            iconView.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private final RequestListener<Drawable> mErrorListener = new RequestListener<Drawable>() {

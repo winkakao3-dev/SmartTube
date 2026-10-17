@@ -96,7 +96,20 @@
     <!--<item name="lb_search_orb_focused_zoom" type="fraction">120%</item>-->
 
     <!-- MOD: Zoom factor of focused sidebar header (default: 1.2) -->
-    <!--<item format="float" name="lb_browse_header_select_scale" type="dimen">1.2</item>-->
+    <item format="float" name="lb_browse_header_select_scale" type="dimen">1.0</item>
+    <item name="lb_browse_header_unselect_alpha" type="fraction">100%</item>
+    <dimen name="lb_browse_headers_rail_width">78dp</dimen>
+    <!-- Rows keep browsePaddingStart (56dp); 42dp leaves room for the focused card to zoom left of its slot without going under the rail -->
+    <dimen name="lb_browse_rows_rail_margin_start">42dp</dimen>
+    <dimen name="header_label_text_size">18sp</dimen>
+    <dimen name="header_pill_min_width">222dp</dimen>
+    <dimen name="row_header_text_size">18sp</dimen>
+    <dimen name="header_icon_size">24dp</dimen>
+    <dimen name="header_pill_padding_horizontal">12dp</dimen>
+    <dimen name="header_pill_padding_vertical">8dp</dimen>
+    <dimen name="header_pill_corner_radius">8dp</dimen>
+    <dimen name="header_label_margin_start">16dp</dimen>
+    <dimen name="browse_headers_padding_start">15dp</dimen>
 
     <!--
     Space between cards. Origin: 8dp More info:
@@ -104,7 +117,7 @@
     -->
     <!--<dimen name="lb_browse_item_horizontal_spacing">15dp</dimen>-->
     <!--<dimen name="lb_browse_item_vertical_spacing">15dp</dimen>-->
-    <dimen name="grid_item_horizontal_spacing">24dp</dimen>
+    <dimen name="grid_item_horizontal_spacing">34dp</dimen>
     <dimen name="search_pill_width">315dp</dimen>
     <dimen name="search_pill_corner_radius">26dp</dimen>
     <dimen name="search_pill_text_size">18sp</dimen>
@@ -114,7 +127,7 @@
 
     <!-- Browse headers spacing. Origin: 21dp -->
     <!--<dimen name="lb_browse_headers_vertical_spacing">10dp</dimen>-->
-    <dimen name="browse_headers_vertical_spacing">10dp</dimen>
+    <dimen name="browse_headers_vertical_spacing">0dp</dimen>
 
     <!-- Vine card widget values -->
     <dimen name="lb_basic_card_main_width">140dp</dimen>

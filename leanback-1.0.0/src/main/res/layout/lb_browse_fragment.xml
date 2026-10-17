@@ -40,6 +40,13 @@
                 android:layout_height="match_parent" />
 
         </androidx.leanback.widget.BrowseRowsFrameLayout>
+        <!-- MOD: dims the rows while the headers panel is open over a rail -->
+        <View
+            android:id="@+id/browse_rows_scrim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lb_browse_rows_scrim"
+            android:visibility="invisible" />
 
         <!-- Padding needed for shadow -->
         <FrameLayout

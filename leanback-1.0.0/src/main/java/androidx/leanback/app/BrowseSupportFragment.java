@@ -724,6 +724,9 @@ public class BrowseSupportFragment extends BaseSupportFragment {
     boolean mShowingHeaders = true;
     boolean mCanShowHeaders = true;
     private int mContainerListMarginStart;
+    private int mHeadersWidth;
+    private int mHeadersRailWidth;
+    private int mRowsRailMarginStart;
     private int mContainerListAlignTop;
     private boolean mMainFragmentScaleEnabled = true;
     OnItemViewSelectedListener mExternalOnItemViewSelectedListener;
@@ -1188,6 +1191,9 @@ public class BrowseSupportFragment extends BaseSupportFragment {
         mContainerListAlignTop = (int) ta.getDimension(
                 R.styleable.LeanbackTheme_browseRowsMarginTop, context.getResources()
                 .getDimensionPixelSize(R.dimen.lb_browse_rows_margin_top));
+        mHeadersWidth = context.getResources().getDimensionPixelSize(R.dimen.lb_browse_headers_width);
+        mHeadersRailWidth = context.getResources().getDimensionPixelSize(R.dimen.lb_browse_headers_rail_width);
+        mRowsRailMarginStart = context.getResources().getDimensionPixelSize(R.dimen.lb_browse_rows_rail_margin_start);
         ta.recycle();
 
         readArguments(getArguments());
@@ -1451,7 +1457,12 @@ public class BrowseSupportFragment extends BaseSupportFragment {
         View containerList;
         containerList = mHeadersSupportFragment.getView();
         lp = (MarginLayoutParams) containerList.getLayoutParams();
-        lp.setMarginStart(onScreen ? 0 : -mContainerListMarginStart);
+        if (mHeadersRailWidth > 0) {
+            // Narrowing (not shifting) keeps the icons, which sit at the start, on screen
+            lp.width = onScreen ? mHeadersWidth : mHeadersRailWidth;
+        } else {
+            lp.setMarginStart(onScreen ? 0 : -mContainerListMarginStart);
+        }
         containerList.setLayoutParams(lp);
     }
 
@@ -1460,11 +1471,14 @@ public class BrowseSupportFragment extends BaseSupportFragment {
         mHeadersSupportFragment.setHeadersEnabled(show);
         setHeadersOnScreen(show);
         expandMainFragment(!show);
+        if (mHeadersRailWidth > 0) {
+            getView().findViewById(R.id.browse_rows_scrim).setVisibility(show ? View.VISIBLE : View.INVISIBLE);
+        }
     }
 
     private void expandMainFragment(boolean expand) {
         MarginLayoutParams params = (MarginLayoutParams) mScaleFrameLayout.getLayoutParams();
-        params.setMarginStart(!expand ? mContainerListMarginStart : 0);
+        params.setMarginStart(!expand ? mContainerListMarginStart : mRowsRailMarginStart);
         mScaleFrameLayout.setLayoutParams(params);
         mMainFragmentAdapter.setExpand(expand);
 

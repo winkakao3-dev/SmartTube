@@ -20,8 +20,22 @@
     </style>
 
     <!-- Decrease header spacing in BrowseView -->
+    <style name="BrowseTitleStyle" parent="Widget.Leanback.TitleView">
+        <item name="android:paddingStart">@dimen/lb_browse_headers_rail_width</item>
+    </style>
+
+    <style name="RowHeaderStyle" parent="Widget.Leanback.Row.Header">
+        <item name="android:textAppearance">@style/TextAppearance.RowHeader</item>
+    </style>
+
+    <style name="TextAppearance.RowHeader" parent="TextAppearance.Leanback.Row.Header">
+        <item name="android:textColor">@color/yt_text_secondary</item>
+        <item name="android:textSize">@dimen/row_header_text_size</item>
+    </style>
+
     <style name="BrowseHeaderStyle" parent="Widget.Leanback.Headers.VerticalGridView">
         <item name="android:verticalSpacing">@dimen/browse_headers_vertical_spacing</item>
+        <item name="android:paddingStart">@dimen/browse_headers_padding_start</item>
     </style>
 
     <!-- Color scheme: Teal (Default) -->
@@ -62,6 +76,8 @@
         <item name="itemsVerticalGridStyle">@style/GridViewStyle</item>
         <item name="rowHorizontalGridStyle">@style/RowViewStyle</item>
         <item name="headersVerticalGridStyle">@style/BrowseHeaderStyle</item>
+        <item name="browseTitleViewStyle">@style/BrowseTitleStyle</item>
+        <item name="rowHeaderStyle">@style/RowHeaderStyle</item>
         <!-- Disable activity transition animations -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- Make activity fullscreen -->

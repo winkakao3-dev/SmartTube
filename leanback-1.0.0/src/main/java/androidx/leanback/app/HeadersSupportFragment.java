@@ -186,7 +186,8 @@ public class HeadersSupportFragment extends BaseRowSupportFragment {
         if (listView != null) {
             getView().setVisibility(mHeadersGone ? View.GONE : View.VISIBLE);
             if (!mHeadersGone) {
-                if (mHeadersEnabled) {
+                // MOD: a rail keeps its icons visible while headers are disabled
+                if (mHeadersEnabled || getResources().getDimensionPixelSize(R.dimen.lb_browse_headers_rail_width) > 0) {
                     listView.setChildrenVisibility(View.VISIBLE);
                 } else {
                     listView.setChildrenVisibility(View.INVISIBLE);
