@@ -142,7 +142,6 @@ public class ComplexImageCardView extends ImageCardView {
         }
 
         titleView.setMaxLines(lines);
-        titleView.setLines(lines);
     }
 
     public void setContentLinesNum(int lines) {

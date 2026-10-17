@@ -104,7 +104,11 @@
     -->
     <!--<dimen name="lb_browse_item_horizontal_spacing">15dp</dimen>-->
     <!--<dimen name="lb_browse_item_vertical_spacing">15dp</dimen>-->
-    <dimen name="grid_item_horizontal_spacing">15dp</dimen>
+    <dimen name="grid_item_horizontal_spacing">24dp</dimen>
+    <dimen name="search_pill_width">315dp</dimen>
+    <dimen name="search_pill_corner_radius">26dp</dimen>
+    <dimen name="search_pill_text_size">18sp</dimen>
+    <dimen name="search_pill_padding_horizontal">18dp</dimen>
     <dimen name="grid_item_vertical_spacing">15dp</dimen>
     <dimen name="grid_horizontal_margin">25dp</dimen>
 

@@ -27,23 +27,13 @@
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
                   android:layout_gravity="center_vertical|start">
-        <androidx.leanback.widget.SearchOrbView
-            android:id="@+id/title_orb"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:transitionGroup="true"
-            android:layout_gravity="center_vertical|start"
-            android:nextFocusRight="@id/account_orb"
-            android:visibility="invisible" />
-
         <com.liskovsoft.smartyoutubetv2.tv.ui.widgets.search.LongClickSearchOrbView
             android:id="@+id/account_orb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:transitionGroup="true"
-            android:layout_marginStart="@dimen/search_bar_right_items_margin"
-            android:nextFocusLeft="@id/title_orb"
-            android:nextFocusRight="@id/language_orb"
+            android:layout_gravity="center_vertical"
+            android:nextFocusRight="@id/title_orb"
             app:searchOrbIcon="@drawable/browse_title_account"
             app:searchOrbColor="@color/orb_color"
             app:searchOrbBrightColor="@color/orb_bright_color"
@@ -51,12 +41,41 @@
             android:visibility="gone" />
 
         <androidx.leanback.widget.SearchOrbView
+            android:id="@+id/title_orb"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:transitionGroup="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/search_bar_right_items_margin"
+            android:nextFocusLeft="@id/account_orb"
+            android:nextFocusRight="@id/language_orb"
+            android:visibility="invisible" />
+
+        <!-- Not focusable: it lights up with title_orb so both read as one search control -->
+        <TextView
+            android:id="@+id/search_pill"
+            android:layout_width="@dimen/search_pill_width"
+            android:layout_height="@dimen/lb_search_orb_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/search_bar_right_items_margin"
+            android:paddingStart="@dimen/search_pill_padding_horizontal"
+            android:paddingEnd="@dimen/search_pill_padding_horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/search_pill_bg"
+            android:text="@string/title_search"
+            android:textColor="@color/search_pill_text"
+            android:textSize="@dimen/search_pill_text_size"
+            android:textStyle="bold"
+            android:focusable="false"
+            android:visibility="invisible" />
+
+        <androidx.leanback.widget.SearchOrbView
             android:id="@+id/language_orb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:transitionGroup="true"
             android:layout_marginStart="@dimen/search_bar_right_items_margin"
-            android:nextFocusLeft="@id/account_orb"
+            android:nextFocusLeft="@id/title_orb"
             android:nextFocusRight="@id/exit_pip"
             app:searchOrbIcon="@drawable/search_bar_language_orb"
             app:searchOrbColor="@color/orb_color"

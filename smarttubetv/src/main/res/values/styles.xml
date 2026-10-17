@@ -52,12 +52,12 @@
     <style name="App.Theme.Leanback.Browse" parent="Theme.Leanback.Browse">
         <item name="android:windowBackground">@color/yt_background</item>
         <item name="brandColor">@color/yt_background</item>
-        <item name="brandAccentColor">@color/yt_red</item>
+        <item name="brandAccentColor">@color/yt_surface</item>
         <item name="shelfBackground">@color/yt_background</item>
         <item name="cardDefaultBackground">@color/yt_background</item>
         <item name="cardSelectedBackground">@color/yt_background</item>
         <item name="cardProgressStyle">@style/ProgressBarHorizontal.Dark</item>
-        <item name="appLogo">@mipmap/app_logo</item>
+        <item name="appLogo">@drawable/yt_logo</item>
         <item name="android:colorAccent" tools:targetApi="21">@color/yt_red</item>
         <item name="itemsVerticalGridStyle">@style/GridViewStyle</item>
         <item name="rowHorizontalGridStyle">@style/RowViewStyle</item>
